@@ -56,12 +56,13 @@ def get_unique_role():
         get_role = set(['Job Title'])
     return sorted(list(get_role))
 
+Job_roles=get_unique_role()
 # Create sidebar for user input
 st.sidebar.header('Enter Employee Skills')
 st.sidebar.text_input('Enter Employee Name')
 st.sidebar.selectbox(
     'Job Role',
-    (get_unique_role()))
+    (Job_roles))
 programming = st.sidebar.slider('Programming', 0, 100, 50)
 networking = st.sidebar.slider('Networking', 0, 100, 50) 
 db = st.sidebar.slider('Database Management', 0, 100, 50)
