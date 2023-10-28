@@ -12,7 +12,29 @@ This app predicts the proficiency percentage of an employee based on their skill
 data = pd.read_csv('employee_skill_dataset.csv')
 
 def calculate_proficiency(row):
-    # same function as before
+    programming_weight = 0.3
+    networking_weight = 0.2
+    db_management_weight = 0.1
+    communication_weight = 0.1
+    teamwork_weight = 0.1
+    emotional_intelligence_weight = 0.05
+    leadership_weight = 0.05
+    team_building_weight = 0.05
+    risk_management_weight = 0.05
+
+    proficiency_percentage = (
+        row['Programming_Skill'] * programming_weight +
+        row['Networking_Skill'] * networking_weight +
+        row['Database_Management'] * db_management_weight +
+        row['Communication'] * communication_weight +
+        row['Teamwork_Collaboration'] * teamwork_weight +
+        row['Emotional_Intelligence'] * emotional_intelligence_weight +
+        row['Leadership'] * leadership_weight +
+        row['Team_Building'] * team_building_weight +
+        row['Risk_Management'] * risk_management_weight
+    )
+
+    return proficiency_percentage
     
 data['Proficiency_Percentage'] = data.apply(calculate_proficiency, axis=1) 
 
