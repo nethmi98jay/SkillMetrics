@@ -60,7 +60,7 @@ def get_unique_role():
 
 # Create sidebar for user input
 st.sidebar.header('Enter Employee Skills')
-st.sidebar.input('Enter Employee Name')
+st.sidebar.text_input('Enter Employee Name')
 st.sidebar.selectbox(
     'Job Role',
     (get_unique_role()))
