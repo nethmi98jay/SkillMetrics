@@ -51,7 +51,7 @@ regressor.fit(X_train, y_train)
 def get_unique_role():
     get_role = set()
     with open('employee.csv', mode='r') as file:
-        reader = csv.reader(file)
+        reader = pd.read_csv(file)
         next(reader)
         for row in reader:
             get_role.add(row[10])
