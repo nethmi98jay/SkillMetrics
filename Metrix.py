@@ -52,12 +52,11 @@ def get_unique_role():
     get_role = set()
     with open('employee.csv', mode='r') as file:
         reader = pd.read_csv(file)
-        # reader['Job Title']
     return sorted(set(reader['Job Title']))
 
 # Create sidebar for user input
 st.sidebar.header('Enter Employee Skills')
-st.sidebar.text_input('Enter Employee Name')
+employee_name = st.sidebar.text_input('Enter Employee Name')
 selected_job =  st.sidebar.selectbox(
     'Select your job role',
     (get_unique_role()))
@@ -75,6 +74,7 @@ risk_management = st.sidebar.slider('Risk Management', 0, 100, 50)
 if st.button('Predict'):
     skills = [programming, networking, db, communication, teamwork, emotional_intelligence, leadership, team_building, risk_management]
     pred = regressor.predict([skills])[0]
+    st.write(f'Employee Name: {employee_name})
     st.write(f'Predicted Proficiency Percentage: {pred:.2f}%')
     
     if pred < 50:
