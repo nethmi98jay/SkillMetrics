@@ -52,7 +52,7 @@ def get_unique_role():
     get_role = set()
     with open('employee.csv', mode='r') as file:
         reader = pd.read_csv(file)
-        reader['Job Title']
+        # reader['Job Title']
     return sorted(set(reader['Job Title']))
 
 # Create sidebar for user input
