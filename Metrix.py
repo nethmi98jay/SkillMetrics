@@ -78,11 +78,15 @@ if st.button('Predict'):
     st.write(f'Employee Name: {employee_name}')
     st.write(f'Predicted Proficiency Percentage: {pred:.2f}%')
     
+    suggested_training = ""
     if pred < 50:
+        suggested_training = " Basic Training"
         st.write("Suggested Training Level: Basic Training")
     elif pred < 70:
+        suggested_training = "Intermediate Training"
         st.write("Suggested Training Level: Intermediate Training")
     else:
+        suggested_training = "Advanced Training"
         st.write("Suggested Training Level: Advanced Training")
         
     report = f"""
