@@ -83,3 +83,26 @@ if st.button('Predict'):
         st.write("Suggested Training Level: Intermediate Training")
     else:
         st.write("Suggested Training Level: Advanced Training")
+        
+    report = f"""
+    AI Based Employee Proficiency Report
+    Employee Name: {employee_name} 
+    Report Date: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+    Programming Skill: {programming}
+    Networking Skill: {networking}  
+    Database Management: {db}
+    Communication: {communication}
+    Teamwork Collaboration: {teamwork}   
+    Emotional Intelligence: {emotional_intelligence}
+    Leadership: {leadership}
+    Team Building: {team_building}
+    Risk Management: {risk_management}
+    Proficiency Percentage: {pred:.2f}% 
+    Suggested Training Level: {suggested_training}
+    """
+    
+    st.download_button(
+       label="Download Report",
+       data=report,
+       file_name=f"{employee_name}_report.txt" 
+    )
