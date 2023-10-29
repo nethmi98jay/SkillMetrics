@@ -53,16 +53,14 @@ def get_unique_role():
     with open('employee.csv', mode='r') as file:
         reader = pd.read_csv(file)
         reader['Job Title']
-        get_role = set(['Job Title'])
-    return get_role
+    return sorted(set(reader['Job Title']))
 
-Job_roles=get_unique_role()
 # Create sidebar for user input
 st.sidebar.header('Enter Employee Skills')
 st.sidebar.text_input('Enter Employee Name')
 selected_job =  st.sidebar.selectbox(
     'Select your job role',
-    (Job_roles))
+    (get_unique_role()))
 programming = st.sidebar.slider('Programming', 0, 100, 50)
 networking = st.sidebar.slider('Networking', 0, 100, 50) 
 db = st.sidebar.slider('Database Management', 0, 100, 50)
