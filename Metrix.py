@@ -74,7 +74,7 @@ risk_management = st.sidebar.slider('Risk Management', 0, 100, 50)
 if st.button('Predict'):
     skills = [programming, networking, db, communication, teamwork, emotional_intelligence, leadership, team_building, risk_management]
     pred = regressor.predict([skills])[0]
-    st.write(f'Employee Name: {employee_name})
+    st.write(f'Employee Name: {employee_name}')
     st.write(f'Predicted Proficiency Percentage: {pred:.2f}%')
     
     if pred < 50:
